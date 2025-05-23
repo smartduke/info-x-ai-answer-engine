@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter as FontSans } from 'next/font/google'
+import { Playfair_Display as FontDisplay } from 'next/font/google'
 import './globals.css'
 
 const fontSans = FontSans({
@@ -16,12 +17,17 @@ const fontSans = FontSans({
   variable: '--font-sans'
 })
 
-const title = 'Morphic'
+const fontDisplay = FontDisplay({
+  subsets: ['latin'],
+  variable: '--font-display'
+})
+
+const title = 'Infoxai'
 const description =
   'A fully open-source AI-powered answer engine with a generative UI.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://morphic.sh'),
+  metadataBase: new URL('https://infoxai.sh'),
   title,
   description,
   openGraph: {
@@ -65,7 +71,8 @@ export default async function RootLayout({
       <body
         className={cn(
           'min-h-screen flex flex-col font-sans antialiased',
-          fontSans.variable
+          fontSans.variable,
+          fontDisplay.variable
         )}
       >
         <ThemeProvider
