@@ -8,8 +8,7 @@ import { createClient } from '@/lib/supabase/server'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter as FontSans } from 'next/font/google'
-import { Playfair_Display as FontDisplay } from 'next/font/google'
+import { Playfair_Display as FontDisplay, Inter as FontSans } from 'next/font/google'
 import './globals.css'
 
 const fontSans = FontSans({

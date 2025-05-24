@@ -109,7 +109,7 @@ export function ChatPanel({
   return (
     <div
       className={cn(
-        'w-full bg-gradient-to-b from-background/30 via-background/70 to-background backdrop-filter backdrop-blur-lg group/form-container shrink-0 pb-2',
+        'w-full bg-gradient-to-b from-background/30 via-background/70 to-background dark:from-background/20 dark:via-background/60 dark:to-background backdrop-filter backdrop-blur-lg group/form-container shrink-0 pb-2',
         messages.length > 0 ? 'sticky bottom-0 px-2 pb-5 pt-4' : 'px-6'
       )}
     >
@@ -125,14 +125,14 @@ export function ChatPanel({
         onSubmit={handleSubmit}
         className={cn('max-w-3xl w-full mx-auto relative')}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/0 to-primary/5 rounded-3xl -z-10 blur-xl opacity-70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r rounded-3xl -z-10 blur-xl opacity-70"></div>
         {/* Scroll to bottom button - only shown when showScrollToBottomButton is true */}
         {showScrollToBottomButton && messages.length > 0 && (
           <Button
             type="button"
             variant="outline"
             size="icon"
-            className="absolute -top-12 right-4 z-20 size-10 rounded-full shadow-lg bg-background/90 backdrop-blur-md border-input/40 hover:bg-background transition-all duration-200"
+            className="absolute -top-12 right-4 z-20 size-10 rounded-full shadow-lg bg-background/90 dark:bg-sidebar/90 backdrop-blur-md border-input/40 hover:bg-background dark:hover:bg-sidebar/80 transition-all duration-200"
             onClick={handleScrollToBottom}
             title="Scroll to bottom"
           >
@@ -140,7 +140,7 @@ export function ChatPanel({
           </Button>
         )}
 
-        <div className="relative flex flex-col w-full gap-2 bg-background/90 backdrop-blur-md rounded-3xl border border-input/50 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div className="relative flex flex-col w-full gap-2 bg-sidebar/95 dark:bg-sidebar/80 backdrop-blur-md rounded-3xl border border-input/50 shadow-lg hover:shadow-xl transition-all duration-300">
           <Textarea
             ref={inputRef}
             name="input"
@@ -153,8 +153,8 @@ export function ChatPanel({
             spellCheck={false}
             value={input}
             disabled={isLoading || isToolInvocationInProgress()}
-            className="resize-none w-full min-h-12 bg-muted/50 border-0 px-5 py-4 text-sm placeholder:text-muted-foreground/80 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 rounded-t-3xl"
-            onChange={e => {
+            className="resize-none w-full min-h-12 bg-sidebar dark:bg-sidebar border-0 px-5 py-4 text-sm placeholder:text-muted-foreground/80 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 rounded-t-3xl"
+            onChange={e => {  
               handleInputChange(e)
               setShowEmptyScreen(e.target.value.length === 0)
             }}
@@ -179,7 +179,7 @@ export function ChatPanel({
           />
 
           {/* Bottom menu area */}
-          <div className="flex items-center justify-between p-3 px-5 border-t border-input/40 bg-background rounded-b-3xl">
+          <div className="flex items-center justify-between p-3 px-5 rounded-b-3xl bg-sidebar dark:bg-sidebar">
             <div className="flex items-center gap-2">
               <ModelSelector models={models || []} />
               <SearchModeToggle />
@@ -190,7 +190,7 @@ export function ChatPanel({
                   variant="ghost"
                   size="icon"
                   onClick={handleNewChat}
-                  className="shrink-0 rounded-full group hover:bg-primary/10 size-9"
+                  className="shrink-0 rounded-full group hover:bg-primary/10 dark:hover:bg-sidebar-primary/10 size-9"
                   type="button"
                   disabled={isLoading || isToolInvocationInProgress()}
                 >
@@ -203,7 +203,7 @@ export function ChatPanel({
                 variant={isLoading ? 'ghost' : 'default'}
                 className={cn(
                   isLoading && 'animate-pulse',
-                  'rounded-full shadow-lg hover:shadow-xl transition-all duration-200 bg-primary hover:bg-primary/90 size-10 border-2 border-background'
+                  'rounded-full shadow-lg hover:shadow-xl transition-all duration-200 bg-primary hover:bg-primary/90 dark:bg-sidebar-primary dark:hover:bg-sidebar-primary/90 size-10 border-2 border-background dark:border-sidebar-background'
                 )}
                 disabled={
                   (input.length === 0 && !isLoading) ||
@@ -211,7 +211,7 @@ export function ChatPanel({
                 }
                 onClick={isLoading ? stop : undefined}
               >
-                {isLoading ? <Square size={20} /> : <ArrowUp size={20} className="text-primary-foreground" />}
+                {isLoading ? <Square size={20} /> : <ArrowUp size={20} className="text-primary-foreground dark:text-sidebar-primary-foreground" />}
               </Button>
             </div>
           </div>

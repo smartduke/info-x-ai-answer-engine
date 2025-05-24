@@ -1,4 +1,4 @@
-# Morphic
+# Infoxai
 
 An AI-powered search engine with a generative UI.
 
@@ -14,7 +14,7 @@ An AI-powered search engine with a generative UI.
 - ✅ [Verified models](#-verified-models)
 - 👥 [Contributing](#-contributing)
 
-📝 Explore AI-generated documentation on [DeepWiki](https://deepwiki.com/miurla/morphic)
+📝 Explore AI-generated documentation on [DeepWiki](https://deepwiki.com/miurla/infoxai)
 
 ## 🛠 Features
 
@@ -110,13 +110,13 @@ Models are configured in `public/config/models.json`. Each model requires its co
 Fork the repo to your Github account, then run the following command to clone the repo:
 
 ```bash
-git clone git@github.com:[YOUR_GITHUB_ACCOUNT]/morphic.git
+git clone git@github.com:[YOUR_GITHUB_ACCOUNT]/infoxai.git
 ```
 
 ### 2. Install dependencies
 
 ```bash
-cd morphic
+cd infoxai
 bun install
 ```
 
@@ -154,26 +154,26 @@ Visit http://localhost:3000 in your browser.
 
 ## 🌐 Deploy
 
-Host your own live version of Morphic with Vercel, Cloudflare Pages, or Docker.
+Host your own live version of Infoxai with Vercel, Cloudflare Pages, or Docker.
 
 ### Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmiurla%2Fmorphic&env=OPENAI_API_KEY,TAVILY_API_KEY,UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmiurla%2Finfoxai&env=OPENAI_API_KEY,TAVILY_API_KEY,UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN)
 
 ### Docker Prebuilt Image
 
 Prebuilt Docker images are available on GitHub Container Registry:
 
 ```bash
-docker pull ghcr.io/miurla/morphic:latest
+docker pull ghcr.io/miurla/infoxai:latest
 ```
 
 You can use it with docker-compose:
 
 ```yaml
 services:
-  morphic:
-    image: ghcr.io/miurla/morphic:latest
+  infoxai:
+    image: ghcr.io/miurla/infoxai:latest
     env_file: .env.local
     ports:
       - '3000:3000'
